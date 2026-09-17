@@ -3,6 +3,8 @@ import './App.css'
 import { Counter } from './components/Counter.tsx'
 import type { User } from './types.ts'
 import { ChaiList } from './components/ChaiList.tsx'
+import { OrderForm } from './components/OrderForm.tsx'
+import { Card } from './components/Card.tsx'
 
 const menu: User[] = [
   {fullName:"Bhavishya", course: "BCA", price:242027},
@@ -20,6 +22,14 @@ function App() {
       <Counter />
       <div>
         <ChaiList details={menu}/>
+      </div>
+      <div>
+        <OrderForm onSubmit={(order) => 
+          console.log(`your order: ${order.name}, ${order.cups} cups`)
+        }/>
+      </div>
+      <div>
+        <Card title='Typescript series' footer={<button>click me!</button>} />
       </div>
     </>
   )
